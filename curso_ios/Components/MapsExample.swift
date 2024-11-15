@@ -101,7 +101,9 @@ struct MapsExample: View {
 
 func getMapCameraPosition(
     lat: Double,
-    lng: Double
+    lng: Double,
+    latD: Double = 0.1,
+    lngD: Double = 0.1
 ) -> MapCameraPosition {
     return MapCameraPosition
         .region(
@@ -111,7 +113,7 @@ func getMapCameraPosition(
                         latitude: lat,
                         longitude: lng
                     ),
-                span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                span: MKCoordinateSpan(latitudeDelta: latD, longitudeDelta: lngD)
             )
         )
 }
